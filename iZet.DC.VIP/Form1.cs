@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using iZet.DC.VIP.Controllers;
+using iZet.DC.VIP.Models;
 
 namespace iZet.DC.VIP
 {
@@ -14,6 +16,13 @@ namespace iZet.DC.VIP
         public Form1()
         {
             InitializeComponent();
+            statsBindingSource.DataSource = Stats.Instance;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new StatsController().GetStats();
+//            Stats.Instance.SharedMax++;
         }
     }
 }
